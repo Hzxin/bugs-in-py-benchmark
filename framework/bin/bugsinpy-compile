@@ -56,16 +56,6 @@ rm -r -f env/
 ###Add environment
 # python3 -m venv env
 
-# Read python_version in bug_info
-bug_info="$work_dir/bugsinpy_bug.info"
-information=$(<${bug_info})
-information="$( cut -d '"' -f 2 <<< "$information" )";
-py_version=${information:0:5}
-# Setup local pyenv "temp"
-pyenv install $py_version -s
-pyenv virtualenv $py_version "temp"
-pyenv local "temp"
-
 ###Activate environment
 if [ -d "env/Scripts" ]; then
   source env/Scripts/activate
